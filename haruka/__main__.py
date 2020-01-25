@@ -138,9 +138,9 @@ def send_start(bot, update):
     text = "Hey there! My name is Kanna Kobayashi - I'm here to help you manage your groups!\n\
 Click Help button to find out more about how to use me to my full potential.\n\n"
 
-    text += "Maintained by [this awesome person](https://t.me/Okay_retard)
+    text += "Maintained by [this awesome person](https://t.me/Okay_retard).\n\n"
 
-"
+
 
     keyboard = [[InlineKeyboardButton(text="📢 Support Group", url="https://t.me/HarukaAyaGroup")]]
     keyboard += [[InlineKeyboardButton(text="🛠 Control panel", callback_data="cntrl_panel_M")]]
