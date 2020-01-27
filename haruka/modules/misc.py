@@ -105,7 +105,7 @@ def runs(bot: Bot, update: Update):
     chat = update.effective_chat  # type: Optional[Chat]
     update.effective_message.reply_text(random.choice(tld(chat.id, "RUNS-K")))
     
-  @run_async
+@run_async
 def gey(bot: Bot, update: Update):
     update.effective_message.reply_text(random.choice(GEY_STRINGS))
     
