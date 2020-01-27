@@ -37,6 +37,59 @@ from haruka.modules.translations.strings import tld
 
 from requests import get
 
+RAPE_STRINGS = (
+     "`Rape Done Drink The Cum`",
+     "`The user has been successfully raped`",
+     "`Dekho Bhaiyya esa hai! Izzat bachailo apni warna Gaand maar lenge tumhari`",
+     "`Relax your Rear, ders nothing to fear,The Rape train is finally here`",
+     "`Rape coming... Raped! haha 😆`",
+     "`Kitni baar Rape krvyega mujhse?`",
+     "`Don't rape too much BOSSdk, else problem....`",
+     "`Rape krdunga pata bhi nahi chalega`",
+     "`Doing Rape isn't a Good Thing Senpai !`",
+     "`Lodu Andha hai kya Yaha tera rape ho raha hai aur tu abhi tak yahi gaand mara raha hai lulz`",
+) 
+
+ABUSE_STRINGS = (
+       "`Madharchod`",
+	   "`Gaandu`",
+       "`Bhag Randike`",
+	   "`Chutiya he reh jayega`",
+	   "`Ja be Gaandu`",
+	   "`Ma ka Bharosa madharchod`",
+	   "`mml`",
+	   "`You MotherFeker`",
+	   "`Muh Me Lega Bhosdike ?`",
+	   "`Kro Gandu giri kam nhi toh Gand Maar lenge tumhari hum😂`",
+       "`Suno Lodu Jyda muh na chalo be muh me lawda pel Diyaa jayega`",
+       "`Nikal Lode, pehli fursta me nikal`",       
+       "`Taali bajao Lawde ke liye`",
+)
+
+GEY_STRINGS = (
+     "`you gey bsdk`",
+     "`you gey`",
+     "`you gey in the house`",
+     "`you chakka`",
+     "`Bhago BC! Chakka aya`",
+     "`you gey gey gey gey gey gey gey gey`",
+     "`you gey go away`",
+     "`Such Gay personality !`",
+     "`Me chakko se baat nhi krta`",
+     "`There is no difference between You and Manjul Khattar`",
+)
+
+PRO_STRINGS = (
+     "`This gey is pro as phack.`",
+     "`Pros here -_- Time to Leave`",
+     "`Proness Level: 6969696969`",
+     "`Itna pro banda dekhlia bc, ab to marna hoga.`",
+     "`U iz pro but i iz ur DAD, KeK`",
+     "`What are you Bsdk? Human or Gawd(+_+)`",
+     "`Aye pro,ek baat yaad rakhna, Agar Bharosa khud par ho to ksi ki chut tumhari kamzori nahi bnskti.`",
+     "`I smell a Pro Guy around me!`",
+     "`You're as pro as Durov`",
+)
 
 @user_is_gbanned
 @run_async
@@ -51,6 +104,23 @@ def insults(bot: Bot, update: Update):
 def runs(bot: Bot, update: Update):
     chat = update.effective_chat  # type: Optional[Chat]
     update.effective_message.reply_text(random.choice(tld(chat.id, "RUNS-K")))
+    
+  @run_async
+def gey(bot: Bot, update: Update):
+    update.effective_message.reply_text(random.choice(GEY_STRINGS))
+    
+@run_async
+def pro(bot: Bot, update: Update):
+    update.effective_message.reply_text(random.choice(PRO_STRINGS))
+    
+@run_async
+def abuse(bot: Bot, update: Update):
+    update.effective_message.reply_text(random.choice(ABUSE_STRINGS))
+    
+@run_async
+def rape(bot: Bot, update: Update):
+    update.effective_message.reply_text(random.choice(RAPE_STRINGS))    
+  
 
 
 @user_is_gbanned
@@ -582,6 +652,12 @@ SLAP_HANDLER = DisableAbleCommandHandler("slap", slap, pass_args=True, admin_ok=
 INFO_HANDLER = DisableAbleCommandHandler("info", info, pass_args=True, admin_ok=True)
 GITHUB_HANDLER = DisableAbleCommandHandler("git", github, admin_ok=True)
 REPO_HANDLER = DisableAbleCommandHandler("repo", repo, pass_args=True, admin_ok=True)
+PRO_HANDLER = DisableAbleCommandHandler("pro", pro)
+RAPE_HANDLER = DisableAbleCommandHandler("rape", rape)
+GEY_HANDLER = DisableAbleCommandHandler("gey", gey)
+ABUSE_HANDLER = DisableAbleCommandHandler("abuse", abuse)
+
+
 
 ECHO_HANDLER = CommandHandler("echo", echo, filters=Filters.user(OWNER_ID))
 MD_HELP_HANDLER = CommandHandler("markdownhelp", markdown_help, filters=Filters.private)
@@ -605,6 +681,10 @@ dispatcher.add_handler(ID_HANDLER)
 dispatcher.add_handler(IP_HANDLER)
 dispatcher.add_handler(INSULTS_HANDLER)
 dispatcher.add_handler(RUNS_HANDLER)
+dispatcher.add_handler(PRO_HANDLER)
+dispatcher.add_handler(GEY_HANDLER)
+dispatcher.add_handler(RAPE_HANDLER)
+dispatcher.add_handler(ABUSE_HANDLER)
 dispatcher.add_handler(SLAP_HANDLER)
 dispatcher.add_handler(INFO_HANDLER)
 dispatcher.add_handler(ECHO_HANDLER)
